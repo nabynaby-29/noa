@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>For Noa ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap');
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{font-family:'DM Sans',sans-serif;background:#12090e;color:#fff}
+button,input{font:inherit}
+.screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+.hidden{display:none!important}
+
+/* PASSWORD */
+#lock{background:radial-gradient(circle at 50% 42%,#4d2031 0,#241019 38%,#0d070a 100%);text-align:center;padding:24px}
+.lock-card{width:min(390px,92vw);padding:42px 25px;border:1px solid #ffffff20;border-radius:32px;background:#ffffff0a;backdrop-filter:blur(18px);box-shadow:0 25px 80px #0008}
+.mini-heart{font-size:42px;animation:pulse 1.4s infinite}
+h1{font-family:'Playfair Display',serif;font-weight:500}
+.lock-card h1{font-size:34px;margin:12px 0 5px}
+.lock-card p{color:#e9cfd8;font-size:14px;line-height:1.6}
+.pin{display:flex;justify-content:center;gap:10px;margin:25px 0}
+.pin input{width:50px;height:58px;border:1px solid #ffffff25;border-radius:16px;background:#fff0;color:#fff;text-align:center;font-size:25px;outline:none}
+.pin input:focus{border-color:#ef9db8;background:#fff0a}
+.btn{border:0;border-radius:999px;padding:13px 23px;background:#f2a7bd;color:#35111d;font-weight:600;cursor:pointer}
+.error{height:20px;color:#ffb9ca;font-size:13px}
+
+/* HEART WORLD */
+#world{background:radial-gradient(circle at 50% 46%,#6b2944 0,#351522 34%,#10080c 78%);overflow:hidden}
+#world:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,#ffb1c522 0 2px,transparent 3px),radial-gradient(circle at 80% 70%,#fff6 0 1px,transparent 2px);background-size:110px 130px,90px 100px;opacity:.7}
+.topline{position:absolute;top:8%;left:0;right:0;text-align:center;z-index:3;letter-spacing:2px;text-transform:uppercase;font-size:10px;color:#e8becb}
+#world h2{position:absolute;top:11%;left:0;right:0;text-align:center;font-family:'Playfair Display',serif;font-size:30px;font-weight:500;z-index:3}
+#bigHeart{position:absolute;left:50%;top:47%;transform:translate(-50%,-50%) rotate(-45deg);width:145px;height:145px;background:#ee7199;box-shadow:0 0 55px #ee7199aa,0 0 120px #e9508160;cursor:pointer;z-index:4;animation:heartBeat 1.15s infinite}
+#bigHeart:before,#bigHeart:after{content:"";position:absolute;width:145px;height:145px;border-radius:50%;background:#ee7199}
+#bigHeart:before{top:-72px;left:0}#bigHeart:after{left:72px;top:0}
+.heart-text{position:absolute;z-index:5;inset:0;display:flex;align-items:center;justify-content:center;transform:rotate(45deg);font-family:'Playfair Display',serif;font-size:19px;color:white;pointer-events:none}
+.tap{position:absolute;top:68%;left:0;right:0;text-align:center;color:#f5dbe3;font-size:13px;z-index:4}
+.counter{position:absolute;top:73%;left:0;right:0;text-align:center;font-size:11px;color:#cfa7b4;letter-spacing:1px;z-index:4}
+.float{position:absolute;bottom:-40px;z-index:2;animation:rise linear forwards;pointer-events:none}
+@keyframes rise{0%{transform:translateY(0) rotate(0) scale(.7);opacity:0}10%{opacity:1}100%{transform:translate(var(--x),-115vh) rotate(var(--r)) scale(1.2);opacity:0}}
+@keyframes heartBeat{0%,100%{transform:translate(-50%,-50%) rotate(-45deg) scale(1)}14%{transform:translate(-50%,-50%) rotate(-45deg) scale(1.1)}28%{transform:translate(-50%,-50%) rotate(-45deg) scale(1)}42%{transform:translate(-50%,-50%) rotate(-45deg) scale(1.06)}}
+#message{position:absolute;z-index:10;left:50%;top:26%;transform:translateX(-50%);width:min(320px,82vw);padding:17px 20px;border-radius:22px;background:#fff;color:#4a2632;text-align:center;font-family:'Playfair Display',serif;font-size:17px;line-height:1.45;box-shadow:0 20px 60px #0005;animation:pop .3s ease}
+@keyframes pop{from{opacity:0;transform:translateX(-50%) scale(.8)}to{opacity:1;transform:translateX(-50%) scale(1)}}
+
+/* REVEAL */
+#reveal{background:linear-gradient(160deg,#fff6f8,#f4dbe3);color:#4b2935;text-align:center;padding:25px;overflow:auto}
+.reveal-card{width:min(430px,94vw);padding:35px 23px}
+.reveal-card .heart{font-size:55px;animation:pulse 1.2s infinite}
+.reveal-card h2{font-size:32px;margin:12px 0}
+.reveal-card p{line-height:1.8;color:#6c4b56}
+.quote{margin:24px 0;padding:20px;border-radius:22px;background:#ffffffb5;border:1px solid #ead1da;font-family:'Playfair Display',serif;font-size:20px}
+@keyframes pulse{50%{transform:scale(1.12)}}
+</style>
+</head>
+<body>
+
+<section id="lock" class="screen">
+ <div class="lock-card">
+  <div class="mini-heart">♡</div>
+  <h1>Something for you, Noa</h1>
+  <p>A tiny secret made by the girl who loves you very, very much.</p>
+  <div class="pin">
+   <input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric">
+   <input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric">
+  </div>
+  <button class="btn" onclick="unlock()">Unlock my heart ♡</button>
+  <div id="err" class="error"></div>
+ </div>
+</section>
+
+<section id="world" class="screen hidden">
+ <div class="topline">for my sweet boy · 2909</div>
+ <h2>Tap my heart.</h2>
+ <div id="bigHeart"><div class="heart-text">♡</div></div>
+ <div class="tap">tap it and see what happens</div>
+ <div id="counter" class="counter">0 / 7 little secrets</div>
+ <div id="message" class="hidden"></div>
+</section>
+
+<section id="reveal" class="screen hidden">
+ <div class="reveal-card">
+  <div class="heart">♥</div>
+  <h2>You found all of them.</h2>
+  <div class="quote">“I would choose you in every single lifetime.”</div>
+  <p>And if you thought that was all… baby, you know me better than that. ♡</p>
+  <button class="btn" onclick="openFinal()">One last thing →</button>
+ </div>
+</section>
+
+<section id="final" class="screen hidden" style="background:#fff6f8;color:#4b2935;text-align:center;padding:28px">
+ <div style="max-width:420px">
+  <div style="font-size:58px">💗</div>
+  <h1 style="font-size:35px">Happy birthday, Noa Noa.</h1>
+  <p style="font-family:'Playfair Display',serif;font-size:21px;line-height:1.6">You have my whole heart.<br>Today, tomorrow, and every day after.</p>
+  <p style="color:#765762;line-height:1.7">Now go open your other surprise. I love you. ❤️</p>
+ </div>
+</section>
+
+<script>
+const SECRET="2909";
+const inputs=[...document.querySelectorAll('.pin input')];
+inputs.forEach((x,i)=>x.addEventListener('input',()=>{if(x.value&&inputs[i+1])inputs[i+1].focus()}));
+inputs[0].focus();
+
+function unlock(){
+ const code=inputs.map(x=>x.value).join('');
+ if(code===SECRET){
+   document.getElementById('lock').classList.add('hidden');
+   document.getElementById('world').classList.remove('hidden');
+   burst(20);
+ }else{
+   document.getElementById('err').textContent="Hmm… that isn't it, my love ♡";
+   inputs.forEach(x=>x.value=''); inputs[0].focus();
+ }
+}
+const messages=[
+ "I love you more than you will ever be able to imagine. ♡",
+ "You are my favourite person in this entire world.",
+ "It's always you. No question, no doubt.",
+ "You are my sweet boy and forever will be.",
+ "You make my days happier and my smile bigger.",
+ "I would choose you in every single lifetime.",
+ "You have my whole heart, Noa Noa. ❤️"
+];
+let taps=0;
+document.getElementById('bigHeart').onclick=()=>{
+ taps++;
+ burst(taps<7?10:25);
+ const m=document.getElementById('message');
+ m.textContent=messages[(taps-1)%messages.length];
+ m.classList.remove('hidden');
+ clearTimeout(window.mt); window.mt=setTimeout(()=>m.classList.add('hidden'),1900);
+ document.getElementById('counter').textContent=Math.min(taps,7)+" / 7 little secrets";
+ if(taps>=7)setTimeout(()=>{document.getElementById('world').classList.add('hidden');document.getElementById('reveal').classList.remove('hidden')},1700);
+};
+function burst(n){
+ const w=document.getElementById('world');
+ for(let i=0;i<n;i++){
+  const e=document.createElement('div'); e.className='float';
+  e.textContent=['♥','♡','💗','❤'][Math.floor(Math.random()*4)];
+  e.style.left=Math.random()*100+'%';
+  e.style.fontSize=(14+Math.random()*25)+'px';
+  e.style.animationDuration=(3+Math.random()*3)+'s';
+  e.style.setProperty('--x',((Math.random()-.5)*190)+'px');
+  e.style.setProperty('--r',((Math.random()-.5)*120)+'deg');
+  w.appendChild(e); setTimeout(()=>e.remove(),7000);
+ }
+}
+function openFinal(){
+ document.getElementById('reveal').classList.add('hidden');
+ document.getElementById('final').classList.remove('hidden');
+ burst(35);
+}
+</script>
+</body>
+</html>
